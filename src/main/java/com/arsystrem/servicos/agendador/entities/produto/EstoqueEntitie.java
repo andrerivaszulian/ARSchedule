@@ -1,7 +1,6 @@
-package com.arsystrem.servicos.agendador.entities.caixa;
+package com.arsystrem.servicos.agendador.entities.produto;
 
 import com.arsystrem.servicos.agendador.commons.base.entity.BaseEntity;
-import com.arsystrem.servicos.agendador.entities.produto.ProdutoEntitie;
 import lombok.Getter;
 import lombok.Setter;
 import javax.persistence.Entity;
@@ -12,18 +11,12 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-@Table(name = "caixa_itens")
-public class CaixaItensEntitie extends BaseEntity {
+@Table(name = "estoque")
+public class EstoqueEntitie extends BaseEntity {
 
     private Long quantidade;
 
     @ManyToOne
     @JoinColumn(name = "fk_produto")
     private ProdutoEntitie produto;
-
-    @ManyToOne
-    @JoinColumn(name = "fk_caixa")
-    private CaixaEntitie caixa;
-
-    private Long valor;
 }

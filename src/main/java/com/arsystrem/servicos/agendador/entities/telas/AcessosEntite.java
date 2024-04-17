@@ -20,4 +20,6 @@ public class AcessosEntite extends BaseEntity {
     private TipoUsuarioEntite tipoUsuarioEntite;
 
     private Boolean alterar;
+    private Boolean visualizar;
+    private Boolean incluir;
 }

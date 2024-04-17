@@ -15,6 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "telas_acessos")
 public class TelasAcessosEntite extends BaseEntity {
+
     @ManyToOne
     @JoinColumn(name = "fk_tela")
     private TelaEntitie tela;
