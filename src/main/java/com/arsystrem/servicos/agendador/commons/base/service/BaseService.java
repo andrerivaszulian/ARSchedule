@@ -1,6 +1,5 @@
 package com.arsystrem.servicos.agendador.commons.base.service;
 
-
 import com.arsystrem.servicos.agendador.commons.base.entity.BaseEntity;
 import com.arsystrem.servicos.agendador.commons.base.repository.BaseRepository;
 import com.arsystrem.servicos.agendador.commons.error.Exception;
