@@ -23,7 +23,6 @@ public abstract class BaseService<T1 extends BaseEntity, T2> {
                 .withIgnoreCase()
                 .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
         Example<T1> example = Example.of(entity, matcher);
-
         return repository.findAll(example, pageable);
     }
 
