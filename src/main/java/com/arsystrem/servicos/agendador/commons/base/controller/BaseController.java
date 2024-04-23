@@ -21,7 +21,7 @@ public class BaseController<T1 extends BaseEntity, T2> {
     private BaseService<T1, T2> service;
 
     @PostMapping("/filter")
-    public ResponseEntity<?> findAll(@PageableDefault(page = 0, size = 10) Pageable pageable, @RequestBody T1 entity) {
+    public ResponseEntity<Object> findAll(@PageableDefault(page = 0, size = 10) Pageable pageable, @RequestBody T1 entity) {
         try {
             return ResponseEntity.ok(ApiReturn.of(service.findAll(pageable, entity)));
         } catch (Exception e) {
@@ -30,7 +30,7 @@ public class BaseController<T1 extends BaseEntity, T2> {
     }
 
     @GetMapping()
-    public ResponseEntity<?> findAll() {
+    public ResponseEntity<Object> findAll() {
         try {
             return ResponseEntity.ok(ApiReturn.of(service.findAllNoPageOrFilter()));
         } catch (Exception e) {
@@ -39,7 +39,7 @@ public class BaseController<T1 extends BaseEntity, T2> {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable Long id) {
+    public ResponseEntity<Object> findById(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(ApiReturn.of(service.findById(id)));
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class BaseController<T1 extends BaseEntity, T2> {
     }
 
     @PostMapping()
-    public ResponseEntity<?> save(@RequestBody T1 entity) {
+    public ResponseEntity<Object> save(@RequestBody T1 entity) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED).body(ApiReturn.of(service.save(entity)));
         } catch (Exception e) {
@@ -57,7 +57,7 @@ public class BaseController<T1 extends BaseEntity, T2> {
     }
 
     @PostMapping("/list")
-    public ResponseEntity<?> saveList(@RequestBody List<T1> entities) {
+    public ResponseEntity<Object> saveList(@RequestBody List<T1> entities) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED).body(ApiReturn.of(service.saveList(entities)));
         } catch (Exception e) {
@@ -66,7 +66,7 @@ public class BaseController<T1 extends BaseEntity, T2> {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody T2 entityDto) {
+    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody T2 entityDto) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(ApiReturn.of(service.update(id, entityDto)));
         } catch (Exception e) {

@@ -1,5 +1,8 @@
 package com.arsystrem.servicos.agendador.commons.error;
 
+import lombok.Getter;
+
+@Getter
 public class Exception extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
@@ -24,16 +27,8 @@ public class Exception extends RuntimeException {
         this.errorCode = errorCode;
     }
 
-    public ErrorType getErrorType() {
-        return errorType;
-    }
-
     public void setErrorType(ErrorType errorType) {
         this.errorType = errorType;
-    }
-
-    public short getErrorCode() {
-        return errorCode;
     }
 
     public void setErrorCode(short errorCode) {

@@ -3,6 +3,7 @@ package com.arsystrem.servicos.agendador.entities.auditoria;
 import com.arsystrem.servicos.agendador.commons.base.entity.BaseEntity;
 import com.arsystrem.servicos.agendador.entities.usuario.UsuarioEntitie;
 import lombok.*;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 @Setter
 @Builder
 @Entity
+@Where(clause = "ativo=true")
 @Table(name = "auditoria")
 @AllArgsConstructor
 @NoArgsConstructor
