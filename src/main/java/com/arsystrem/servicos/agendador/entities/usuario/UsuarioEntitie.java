@@ -28,5 +28,5 @@ public class UsuarioEntitie extends BaseEntity {
    private String senha;
    private LocalDate dataNasc;
    private LocalDate dataCadastro;
-   private LocalDate dataAlteração;
+   private LocalDate dataAlteracao;
 }

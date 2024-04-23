@@ -10,4 +10,5 @@ public class FornecedorDto {
     private String razao;
     private String cnpj;
     private String fone;
+    private Boolean ativo;
 }

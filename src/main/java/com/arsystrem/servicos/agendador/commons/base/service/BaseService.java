@@ -18,9 +18,7 @@ public abstract class BaseService<T1 extends BaseEntity, T2> {
     @Autowired
     private BaseRepository<T1> repository;
 
-    public Page<T1> findAll(int page, int size, T1 entity) {
-        Pageable pageable = PageRequest.of(page, size);
-
+    public Page<T1> findAll(Pageable pageable, T1 entity) {
         ExampleMatcher matcher = ExampleMatcher
                 .matching()
                 .withIgnoreNullValues()

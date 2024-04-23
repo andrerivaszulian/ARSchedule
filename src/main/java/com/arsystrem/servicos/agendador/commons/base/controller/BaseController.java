@@ -6,6 +6,8 @@ import com.arsystrem.servicos.agendador.commons.base.entity.BaseEntity;
 import com.arsystrem.servicos.agendador.commons.base.service.BaseService;
 import com.arsystrem.servicos.agendador.commons.error.Exception;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +21,9 @@ public class BaseController<T1 extends BaseEntity, T2> {
     private BaseService<T1, T2> service;
 
     @PostMapping("/filter")
-    public ResponseEntity<?> findAll(@RequestParam int page, @RequestParam int size, @RequestBody T1 entity) {
+    public ResponseEntity<?> findAll(@PageableDefault(page = 0, size = 10) Pageable pageable, @RequestBody T1 entity) {
         try {
-            return ResponseEntity.ok(ApiReturn.of(service.findAll(page, size, entity)));
+            return ResponseEntity.ok(ApiReturn.of(service.findAll(pageable, entity)));
         } catch (Exception e) {
             return ResponseEntity.status(e.getErrorCode()).body(ApiReturn.ofKaspper(e));
         }
