@@ -73,6 +73,4 @@ public class BaseController<T1 extends BaseEntity, T2> {
             return ResponseEntity.status(e.getErrorCode()).body(ApiReturn.ofKaspper(e));
         }
     }
-
 }
-
