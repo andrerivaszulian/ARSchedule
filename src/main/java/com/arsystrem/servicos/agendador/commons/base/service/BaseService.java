@@ -8,7 +8,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -29,11 +28,10 @@ public abstract class BaseService<T1 extends BaseEntity, T2> {
         return repository.findAll(example, pageable);
     }
 
-    public List<T1> findAllNoPageOrFilter() { return repository.findAll(); }
+    public List<T1> findAllNoPageOrFilter() {return repository.findAll();}
 
     public T1 findById(Long id) {
          Optional<T1> optional = repository.findById(id);
-
          if (optional.isPresent()) {
              return optional.get();
          }
@@ -42,14 +40,11 @@ public abstract class BaseService<T1 extends BaseEntity, T2> {
 
     public T1 update(Long id, T2 dto) {
         Optional<T1> optional = repository.findById(id);
-
         if (!optional.isPresent()) {
             throw Exception.ofNotFound("Id: " + id.toString() + " não encontrado!");
         }
         T1 entity = optional.get();
-
         BeanUtils.copyProperties(dto, entity);
-
         return repository.save(entity);
     }
     
@@ -60,6 +55,5 @@ public abstract class BaseService<T1 extends BaseEntity, T2> {
     public List<T1> saveList(List<T1> entities) {
         return repository.saveAll(entities);
     }
-
 
 }

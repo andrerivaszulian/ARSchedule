@@ -1,6 +1,5 @@
 package com.arsystrem.servicos.agendador.commons.base.controller;
 
-
 import com.arsystrem.servicos.agendador.commons.api.ApiReturn;
 import com.arsystrem.servicos.agendador.commons.base.entity.BaseEntity;
 import com.arsystrem.servicos.agendador.commons.base.service.BaseService;
@@ -11,7 +10,6 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @CrossOrigin
